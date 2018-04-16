@@ -65,7 +65,7 @@ class CompassView: UIView {
     var shaft_view = CenterShaftView()
     
     func update_magnetic_heading(angle: CGFloat) {
-        let radians = angle / 180.0 * CGFloat.pi
+        let radians = -angle / 180.0 * CGFloat.pi
         UIView.animate(withDuration: 0.1, animations: {
             self.scale_view.transform = CGAffineTransform(
                 rotationAngle: radians
@@ -75,7 +75,7 @@ class CompassView: UIView {
             )
         })
         
-        degree_label.text = String(format: "%.0f°", -angle)
+        degree_label.text = String(format: "%.0f°", angle)
     }
     
     // MAKR: - Labels
